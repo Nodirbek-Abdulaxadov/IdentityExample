@@ -1,0 +1,51 @@
+﻿@model AddUserViewModel
+
+<div class="container d-flex justify-content-center">
+    <form asp-controller="auth" asp-action="register" method="post" style="width: 600px;">
+        <h2>Register</h2>
+        <hr />
+        <div class="mb-3 mt-4">
+            <label for="fname" class="form-label">First Name</label>
+            <input asp-for="FirstName" type="text" class="form-control" id="fname">
+            <span asp-validation-for="FirstName" class="form-text text-danger"></span>
+        </div>
+        <div class="mb-3 mt-4">
+            <label for="lname" class="form-label">Last Name</label>
+            <input asp-for="LastName" type="text" class="form-control" id="lname">
+            <span asp-validation-for="LastName" class="form-text text-danger"></span>
+        </div>
+        <div class="mb-3 mt-4">
+            <label for="email" class="form-label">Email address</label>
+            <input asp-for="Email" type="email" class="form-control" id="email">
+            <span asp-validation-for="Email" class="form-text text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input asp-for="Password" type="password" class="form-control" id="password">
+            <span asp-validation-for="Password" class="form-text text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="cpassword" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="cpassword">
+            <span id="pvalid" class="form-text text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('cpassword')
+    .addEventListener('input', CheckConfirmPassword);
+
+    function CheckConfirmPassword() {
+        var password = document.getElementById('password').value;
+        var cpassword = document.getElementById('cpassword').value;
+        var pvalid = document.getElementById('pvalid');
+
+        if (password !== cpassword) {
+            pvalid.innerText = "Password didn't match!";
+        } else {
+            pvalid.innerText = '';
+        }
+    }
+</script>

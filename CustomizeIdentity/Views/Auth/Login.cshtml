@@ -1,0 +1,30 @@
+﻿@model LoginUserViewModel
+
+<div class="container d-flex justify-content-center">
+    <form asp-controller="auth" asp-action="login" onsubmit="saveAuth()" method="post" style="width: 600px;">
+        <h2>Login</h2>
+        <hr />
+        <div class="mb-3 mt-4">
+            <label for="email" class="form-label">Email address</label>
+            <input asp-for="Email" type="email" class="form-control" id="email">
+            <span asp-validation-for="Email" class="form-text text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input asp-for="Password" type="password" class="form-control" id="password">
+            <span asp-validation-for="Password" class="form-text text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+@* <script>
+    function saveAuth() {
+        var data = {
+            "email": document.getElementById('email').value,
+            "password": document.getElementById('password').value,
+        }
+        var json = JSON.stringify(data);
+        localStorage.setItem('auth', json);
+    }
+</script> *@

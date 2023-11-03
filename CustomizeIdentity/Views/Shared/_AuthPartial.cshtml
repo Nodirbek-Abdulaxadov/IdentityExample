@@ -1,0 +1,23 @@
+﻿<ul class="navbar-nav">
+@if (ViewBag.Email == null)
+{
+        <li class="nav-item">
+            <a class="btn btn-outline-success text-dark" asp-controller="auth" asp-action="register">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="btn btn-outline-primary text-dark" asp-controller="auth" asp-action="login">Login</a>
+        </li>
+}
+else
+{
+        <li class="nav-item">
+            <a id="manage" class="nav-link text-dark" href="#" title="Manage">Hello @ViewBag.Email!</a>
+        </li>
+        <li class="nav-item">
+            <a id="logoutForm" class="nav-link text-dark" asp-controller="auth" asp-action="logout">
+                Logout
+            </a>
+        </li>
+}
+
+</ul>
